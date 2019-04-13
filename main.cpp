@@ -1,6 +1,6 @@
 #include <iostream>
 
 int main(int argc, char **argv) {
-    std::cout << "New edit!" << std::endl;
+    std::cout << "Update a thing please!" << std::endl;
     return 0;
 }
