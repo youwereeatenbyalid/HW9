@@ -9,7 +9,7 @@ public:
     Driver(){}
     
     /* Menu
-    /* Provides the user with a series of options;
+     * Provides the user with a series of options;
      * input products, retrieve products by id, retrieve products by price, 
      * remove all instances of a container with the product ID in question BAR ONE,
      * print a list of all products in order.
@@ -28,7 +28,7 @@ public:
      * return a pointer that points to an (array? Linked List?) of all products with a price
      * that match the parameter
      */
-    Product* retrieve(double product){
+    Product* retrieve(double price){
         
     }
     /* clean
@@ -44,11 +44,11 @@ public:
 
 private:
     std::list<Product> productlist;
-}
+};
 
     int main() {
         std::cout << "Update a thing please!" << std::endl;
         Driver myDriver();
-        myDriver.Menu();
+        myDriver().Menu();
         return 0;
     }
