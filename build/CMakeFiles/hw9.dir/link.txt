@@ -1,1 +1,0 @@
-/usr/bin/c++    -rdynamic CMakeFiles/hw9.dir/main.cpp.o  -o hw9 
