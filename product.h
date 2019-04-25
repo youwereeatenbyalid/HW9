@@ -9,7 +9,7 @@ public:
     /* getId
      * retrieves the product id and returns it as an integer.
      */
-    int getId();
+    int getId() const;
     /* setId
      * takes an integer as a parameter and sets the id variable to that value.
      */
@@ -17,7 +17,7 @@ public:
     /* getPrice
      * retrieves the product price and returns it as an double.
      */
-    double getPrice();
+    double getPrice() const;
     /* setPrice
      * takes an double as a parameter and sets the price variable to that value.
      */
@@ -42,6 +42,8 @@ bool operator==(const Product & p1, const Product &p2);
  */
 bool operator<(const Product & p1, const Product &p2);
 
+
+bool priceCompare(const Product & p1, const Product &p2);
 /* >
  * nonmember function that compares two products
  * returns a boolean result based on whether the first id is greater then the second id
