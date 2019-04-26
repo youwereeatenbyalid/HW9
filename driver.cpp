@@ -36,12 +36,13 @@ public:
                 int tempID;
                 std::cout << "Input product id.\n";
                 std::cin >> tempID;
-                retrieve(tempID);
+                retrieveId();
             }else if(inputstring.compare("Price")==0){
                 double tempprice;
                 std::cout << "Input product price.\n";
                 std::cin >> tempprice;
-                retrieve(tempprice);
+                searchProduct.setPrice(tempprice);
+                retrievePrice();
             }else if(inputstring.compare("Print")==0){
                 if(!subset.empty()) print(subset);
                 else print(productvector);
@@ -78,12 +79,12 @@ public:
      * return a pointer that points to an (array? Linked List?) of all products with an id
      * that match the parameter
      */
-    void retrieve(int id){
+    void retrieveId(){
         clean();
         sort(productvector.begin(),productvector.end());
-        *top = std::lower_bound(productvector.back(),productvector.front(),id);
-        *bottom = std::upper_bound(productvector.back(),productvector.front(),id);
-         copy(top, bottom, subset);
+        top = std::lower_bound(productvector.begin(),productvector.end(), searchProduct );
+        bottom = std::upper_bound(productvector.begin(),productvector.end(),searchProduct);
+        copy(top, bottom, subset.begin());
         std::cout<< "Found" << subset.size() << "Records that matched the product id.\n";
     }
     
@@ -91,12 +92,12 @@ public:
      * return a pointer that points to an (array? Linked List?) of all products with a price
      * that match the parameter
      */
-    void retrieve(double price){
+    void retrievePrice(){
         clean();
         sort(productvector.begin(),productvector.end(),priceCompare);
-        *top = std::lower_bound(productvector.back(),productvector.front(),price);
-        *bottom = std::upper_bound(productvector.back(),productvector.front(),price);
-         copy(top, bottom, subset);
+        top = std::lower_bound(productvector.begin(),productvector.end(),searchProduct,priceCompare);
+        bottom = std::upper_bound(productvector.begin(),productvector.end(),searchProduct,priceCompare);
+        copy(top, bottom, subset.begin());
         std::cout<< "Found" << subset.size() << "Records that matched the price.\n";
     }
     /* erase
@@ -139,6 +140,7 @@ public:
 
 private:
     std::string inputstring;
+    Product searchProduct = Product(0,0);
     std::vector<Product> productvector,subset;
     std::vector<Product>::iterator top, bottom;
     int vectorsize;
@@ -147,6 +149,6 @@ private:
     int main() {
         std::cout << "Update a thing please!" << std::endl;
         Driver myDriver;
-        myDriver.Menu();
+        myDriver.menu();
         return 0;
     }

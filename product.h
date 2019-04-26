@@ -13,7 +13,7 @@ public:
     /* setId
      * takes an integer as a parameter and sets the id variable to that value.
      */
-    int setId(int id);
+    void setId(int id);
     /* getPrice
      * retrieves the product price and returns it as an double.
      */
@@ -21,7 +21,7 @@ public:
     /* setPrice
      * takes an double as a parameter and sets the price variable to that value.
      */
-    double setPrice(double price);
+    void setPrice(double price);
     /* extractor
      * a friend function that returns a label with the id and the price separated by a comma
      */
