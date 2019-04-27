@@ -42,8 +42,11 @@ bool operator==(const Product & p1, const Product &p2);
  */
 bool operator<(const Product & p1, const Product &p2);
 
-
+/*
+ * Two different boolean functions used to determine criteria in the sort algorithms
+ */
 bool priceCompare(const Product & p1, const Product &p2);
+bool IDCompare(const Product& p1, const Product& p2);
 /* >
  * nonmember function that compares two products
  * returns a boolean result based on whether the first id is greater then the second id
